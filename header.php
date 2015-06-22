@@ -49,9 +49,6 @@
                     <li>
                         <a class="head-nav" href="#contact">Contact Us</a>
                     </li>
-                    <li>
-                        <a href="<?php echo home_url() . '/gallery'; ?>">Our Gallery</a>
-                    </li>
                 </ul>
             </div>
             <?php } ?>
