@@ -2,7 +2,7 @@
 /**
  * Theme Settings.
  */
-if(!defined('AspPATH')) exit;
+if(!defined('ABSPATH')) exit;
 
 /**
  * Setup Theme Admin Menu
