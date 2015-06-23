@@ -32,7 +32,10 @@
           <div class="col-md-4">
             <h3> Contact Us </h3>
             <div class="footer-contact">
-            <?php echo do_shortcode('[contact-form-7 id="9" title="Contact form"]'); ?>
+            <?php           
+              $form_id = esc_attr( sp_get_option('contact_shortcode') );
+              echo do_shortcode('[contact-form-7 id="' . $form_id . '" title="Contact form"]');
+            ?>
           </div>
           </div>
 

@@ -453,6 +453,7 @@ if ( ! function_exists( 'sp_get_option' ) ) {
             <strong>Ph:</strong> +91 - 1234567890<br />
             </p>',
             'picture_ids'       => '',
+            'contact_shortcode' => '',
         );
 
         $theme_options = wp_parse_args( $theme_options, $defaults );

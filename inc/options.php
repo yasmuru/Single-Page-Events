@@ -35,6 +35,7 @@ function theme_front_page_settings() {
             'services_title'    => esc_attr( $_POST['services_title'] ),
             'services_intro'    => esc_attr( wp_unslash( $_POST['services_intro'] ) ),
             'picture_ids'       => esc_attr( $_POST['picture_ids'] ),
+            'contact_shortcode' => esc_attr( $_POST['contact_shortcode'] ),
         );
         update_option('_blue_star_options', $theme_options);
     ?>
@@ -50,6 +51,7 @@ function theme_front_page_settings() {
     $services_title         = esc_attr( sp_get_option( 'services_title' ) );
     $services_intro         = esc_attr( sp_get_option( 'services_intro' ) );
     $picture_ids            = esc_attr( sp_get_option( 'picture_ids' ) );
+    $contact_shortcode      = esc_attr( sp_get_option( 'contact_shortcode' ) );
     ?>
 <h2>Theme Settings</h2>
 
@@ -118,6 +120,34 @@ function theme_front_page_settings() {
                         ?>
                     </ul>
                 </div>
+            </td>
+        </tr>
+
+        <tr valign="top">
+            <th scope="row"><label for="contact_shortcode"><?php _e('Contact Form 7', 'sp'); ?></label></th>
+            <td>
+                <?php 
+                include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+                if( is_plugin_active('contact-form-7/wp-contact-form-7.php') ) { ?>
+                <select name="contact_shortcode" id="contact_shortcode">
+                    <?php
+                        $args = array('post_type' => 'wpcf7_contact_form', 'posts_per_page' => -1);
+                        
+                        if( $cf7Forms = get_posts( $args ) ){
+                            foreach($cf7Forms as $cf7Form){
+                                $selected = '';
+                                if( $contact_shortcode == $cf7Form->ID  ) {
+                                    $selected = 'selected';
+                                }
+                                echo '<option value="' . $cf7Form->ID . '" ' . $selected . ' > ' . $cf7Form->post_title . ' </option>' ;
+                            }
+                        }
+                    ?>
+                </select>
+                <?php } else {
+                    echo '<p>Please activate contact form 7 plugin</p>';
+                    echo '<input type="hidden" name="contact_shortcode" id="contact_shortcode" value="' . $contact_shortcode . '">';
+                } ?>
             </td>
         </tr>
     </table>
