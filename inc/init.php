@@ -437,21 +437,15 @@ add_action( 'save_post', 'save_services_custombox' );
 if ( ! function_exists( 'sp_get_option' ) ) {
     function sp_get_option( $key ) {
 
-        $theme_options      = get_option( '_blue_star_options' );
+        $theme_options      = get_option( '_single_page_options' );
 
         $defaults           = array(
             'facebook_link'     => 'https://facebook.com',
             'twitter_link'      => 'https://twitter.com',
             'gplus_link'        => 'https://plus.google.com',
-            'services_title'    => 'Blue Stars Event Management',
-            'services_intro'    => '',
-            'contact_address'   => '<p><span class="bold-16p">Blue Stars Events Management</span><br>
-            2250 Lexington Avenue<br>
-            Chennai - <a href="mailto:info@bluestarsevents.com">info@bluestarsevents.com</a><br>
-            <strong>Ph:</strong> +91 - 1234567890<br />
-            <strong>Ph:</strong> +91 - 1234567890<br />
-            <strong>Ph:</strong> +91 - 1234567890<br />
-            </p>',
+            'services_title'    => 'Services',
+            'services_intro'    => 'Services Content',
+            'contact_address'   => 'Address',
             'picture_ids'       => '',
             'contact_shortcode' => '',
         );

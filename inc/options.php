@@ -37,7 +37,7 @@ function theme_front_page_settings() {
             'picture_ids'       => esc_attr( $_POST['picture_ids'] ),
             'contact_shortcode' => esc_attr( $_POST['contact_shortcode'] ),
         );
-        update_option('_blue_star_options', $theme_options);
+        update_option('_single_page_options', $theme_options);
     ?>
         <div id="message" class="updated">Settings saved</div>
     <?php
